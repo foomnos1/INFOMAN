@@ -68,7 +68,7 @@
     <div class="container">
         <div class="left">t</div>
         <div class="right">
-            <form action="" method="post">
+            <form action="function/process.php" method="post">
                 <div class="form">
                     <label>Enter your username: </label>
                     <input type="text" name="username">

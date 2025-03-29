@@ -1,6 +1,8 @@
 <?php
     include "connect.php";
-    include "login.php"
+    include "../function/process.php";
+
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +16,20 @@
     </style>
 </head>
 <body>
-    <?php
-        if (isset($_POST['submit'])){
-    ?>
     
+
     <header>
         <div class="left"></div>
         <div class="right">
-            <p>Hello, <?php echo $_POST['username']; ?></p>
+            <?php
+                if (isset($_SESSION['username'])){
+                    echo "
+                        <p>". ucfirst($_SESSION['username']) ."</p>
+                    ";
+                }
+            ?>
         </div>
     </header>
-
-    <?php
-        }
-    ?>
-
-    
 </body>
 </html>
+
