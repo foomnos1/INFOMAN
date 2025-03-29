@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    
 
     <?php
         include "connect.php";
