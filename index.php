@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="baseColor.css">
     <style>
         /* Kamo na diri */
-        /* Mubutang rako kung kailangan nako iri*/
+        /* Mubutang rako kung kailangan nako iri daan*/
 
         *{
             font-family: Arial, Helvetica, sans-serif;

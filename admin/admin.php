@@ -13,6 +13,7 @@
     <title>Room Reservation</title>
     <style>
         /* Kamo na diri */
+        /* Mubutang rako kung kailangan nako iri daan*/
     </style>
 </head>
 <body>
