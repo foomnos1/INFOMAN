@@ -11,11 +11,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Reservation</title>
+    <link rel="stylesheet" href="../baseColorAndTypeface.css">
     <style>
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
 
-        @include url('../baseColorAndTypeface.css');
+        header{
+            display: flex;
+            justify-content: space-between
+        }
+
+        header .right{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +43,7 @@
                     ";
                 }
             ?>
+            <a href="../index.php">Log Out</a>
         </div>
     </header>
 </body>
