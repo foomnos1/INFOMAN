@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="baseColor.css">
+    <link rel="stylesheet" href="baseColorAndTypeface.css">
     <style>
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
@@ -70,7 +70,7 @@
             <form action="function/process.php" method="post">
                 <div class="form">
                     <label>Enter your username: </label>
-                    <input type="text" name="username">
+                    <input type="text" name="username" autocomplete="off">
                     <button type="submit" name="submit">Login</button>
                 </div>
             </form>
