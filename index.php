@@ -11,12 +11,12 @@
 
         *{
             font-family: Arial, Helvetica, sans-serif;
+            color: var(--textColor);
         }
 
         body{
             height: 100%;
             margin: 0;
-            color: var(--textColor);
         }
 
         .container{

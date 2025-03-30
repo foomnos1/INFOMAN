@@ -14,13 +14,17 @@
     <style>
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
+
+        @include url('../baseColorAndTypeface.css');
     </style>
 </head>
 <body>
     
 
     <header>
-        <div class="left"></div>
+        <div class="left">
+            <h1>Lodging Reservation Management System</h1>
+        </div>
         <div class="right">
             <?php
                 if (isset($_SESSION['username'])){

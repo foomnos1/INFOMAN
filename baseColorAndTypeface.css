@@ -4,3 +4,8 @@
     --accent: #3498DB;
     --textColor: #2C3E50;
 }
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--textColor);
+}
