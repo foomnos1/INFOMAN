@@ -18,7 +18,8 @@
 
         header{
             display: flex;
-            justify-content: space-between
+            justify-content: space-between;
+            padding: 0 10px;
         }
 
         header .right{
@@ -39,11 +40,11 @@
             <?php
                 if (isset($_SESSION['username'])){
                     echo "
-                        <p>". ucfirst($_SESSION['username']) ."</p>
+                        <p>Hello, ". ucfirst($_SESSION['username']) ."</p>
                     ";
                 }
             ?>
-            <a href="../index.php">Log Out</a>
+            <a href="../index.php"><img src="../images/logOut.svg" width="25px"></a>
         </div>
     </header>
 </body>
