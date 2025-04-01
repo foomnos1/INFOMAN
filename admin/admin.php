@@ -1,5 +1,5 @@
 <?php
-    include "connect.php";
+    include "../../connect.php";
     include "../function/process.php";
 
     session_start();
@@ -16,11 +16,15 @@
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
 
+        body{
+            height: 100vh;
+            overflow-y: hidden;
+        }
+
         header{
             display: flex;
             justify-content: space-between;
             padding: 0 50px;
-            z-index: 1;
         }
 
         header .right{
@@ -31,14 +35,13 @@
 
         .container{
             display: flex;
+            height: 100%;
         }
 
         .container .nav{
-            position: fixed;
             left: 0;
             background: #f0f0f0;
-            height: 100%;
-            width: 25vw;
+            width: 25%;
             padding: 10px 0;
             display: flex;
             flex-direction: column;
@@ -60,7 +63,25 @@
 
         .body{
             height: 100%;
-            overflow-y: scroll;
+            width: 75%;
+            overflow-y: auto;
+        }
+
+        #reservation{
+            width: 75%;
+            padding: 10px;
+            border-radius: 25px;
+            background-color: #fff /* e change ang color */
+        }
+
+        #reservation table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #reservation table *{
+            padding: 5px;
+            text-align: center;
         }
     </style>
 </head>
@@ -85,14 +106,46 @@
     <div class="container">
         <div class="nav">
             <div class="navLink">
-                <a href="#">Home</a>
+                <a href="#reservation">Renovations</a>
             </div>
             <div class="navLink">
-                <a href="#">Home</a>
+                <a href="#">Add Rooms</a>
+            </div>
+            <div class="navLink">
+                <a href="#">Update Rooms</a>
+            </div>
+            <div class="navLink">
+                <a href="#">Delete Rooms</a>
             </div>
         </div>
-        <div class="body"></div>
+        <div class="body">
+            <div id="reservation">
+                <table border=1>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Room Number Use</th>
+                        <th>Check-in Date</th>
+                        <th>Check-out Date</th>
+                    </tr>
+                    
+                    <?php
+                        $sql = mysqli_query($con, "SELECT * FROM reservation");
+                        while($row = mysqli_fetch_assoc($sql)){
+                    ?>
+                        <tr>
+                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['contact'];?></td>
+                            <td><?php echo $row['room_number'];?></td>
+                            <td><?php echo $row['check_in_date'];?></td>
+                            <td><?php echo $row['check_out_date'];?></td>
+                        </tr>
+                    <?php
+                        }
+                    ?> 
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 </html>
-
