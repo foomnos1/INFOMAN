@@ -54,25 +54,31 @@
             align-items: center;
         }
 
-        .title{
-            text-align: center;
-        }
-
-        #reservation, #rooms{
-            width: 75%;
+        .content{
+            background-color: white;
+            width: 50%;
             padding: 25px;
             border-radius: 25px;
-            background-color: #fff /* e change ang color */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-        #reservation table{
-            width: 100%;
-            border-collapse: collapse;
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            width: 25vw;
         }
 
-        #reservation table *{
-            padding: 5px;
-            text-align: center;
+        .form button{
+            background-color: var(--accent);
+            border: none;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -95,36 +101,28 @@
         </div>
     </header>
     <div class="container">
-        <div id="reservation">
-            <h1 class="title">Reservations</h1>
-            <table border=1>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Room Number Use</th>
-                    <th>Check-in Date</th>
-                    <th>Check-out Date</th>
-                </tr>
-                
-                <?php
-                    $sql = mysqli_query($con, "SELECT * FROM reservation");
-                    while($row = mysqli_fetch_assoc($sql)){
-                ?>
-                    <tr>
-                        <td><?php echo $row['name'];?></td>
-                        <td><?php echo $row['contact'];?></td>
-                        <td><?php echo $row['room_number'];?></td>
-                        <td><?php echo $row['check_in_date'];?></td>
-                        <td><?php echo $row['check_out_date'];?></td>
-                    </tr>
-                <?php
-                    }
-                ?> 
-            </table>
-        </div>
-        <div id="rooms">
-            <h1 class="title">Rooms</h1>
-            <a href="addRoom.php"></a>
+        <div class="content">
+            <h1>Create a Room</h1>
+            <form action="../function/create.php" method="POST">
+                <div class="form">
+                    <label>Room Name:</label>
+                    <input type="text" name="roomName" required>
+                    <label>Room Type:</label>
+                    <select name="roomType" required>
+                        <option default>--Please Choose a Room Type--</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Family Suite">Family Suite</option>
+                    </select>
+                    <label>Room Picture</label>
+                    <input type="file" name="photo" required>
+                    <label>Price</label>
+                    <input type="number" name="price" required>
+                    <input type="hidden" name="availability" value="available">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

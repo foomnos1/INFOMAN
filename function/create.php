@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Reservation</title>
-    <style>
-        /* Kamo na diri */
-    </style>
-</head>
-<body>
-    
+<?php
+    include "../../connect.php";
 
-    <?php
-        include "connect.php";
-    ?>
-</body>
-</html>
+    if (isset($_POST['submit'])){
+        $roomName = $_POST['roomName'];
+        $roomType = $_POST['roomType'];
+        $price = $_POST['price'];
+        $availability = $_POST['availability'];
+
+        $fileName = $_FILES['photo']['name'];
+        $tmpName = $_FILES['photo']['tmp_name'];
+        
+        $newFileName = uniqid(). ".". $fileName;
+
+        move_uploaded_file($tmpName, '../uploads/'. $newFileName);
+
+        $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$newFileName','$price','$availability')");
+
+        if ($query){
+            header("Location: ../admin/admin.php");
+        }
+    }
+?>

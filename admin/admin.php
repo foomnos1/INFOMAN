@@ -137,6 +137,7 @@
                 <tr>
                     <th>Room Name</th>
                     <th>Room Type</th>
+                    <th>Photo</th>
                     <th>Price</th>
                     <th>Availability</th>
                 </tr>
@@ -147,6 +148,7 @@
                     <tr>
                         <td><?php echo $row['room_name'];?></td>
                         <td><?php echo $row['room_type'];?></td>
+                        <td>different</td>
                         <td><?php echo $row['price'];?></td>
                         <td><?php echo $row['room_availability'];?></td>
                     </tr>
