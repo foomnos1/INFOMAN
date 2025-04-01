@@ -25,7 +25,9 @@
         .left{
             height: 100vh;
             width: 50vw;
-            background: #000; /* elisi ang #000. image ebutang. kopyaha rani "url(images/<name of image>)" */
+            background: url(images/backgroundLogin.jpg);
+            background-position: center;
+            background-size: cover;
         }
 
         .right{
