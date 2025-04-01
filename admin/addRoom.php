@@ -50,8 +50,8 @@
             flex-direction: column;
             margin-top: 80px;
             padding: 10px 0 0;
+            gap: 25vh;
             align-items: center;
-            gap: 5vh;
         }
 
         .title{
@@ -65,8 +65,7 @@
             background-color: #fff /* e change ang color */
         }
 
-        #reservation table,
-        #rooms table{
+        #reservation table{
             width: 100%;
             border-collapse: collapse;
         }
@@ -74,10 +73,6 @@
         #reservation table *{
             padding: 5px;
             text-align: center;
-        }
-
-        #rooms a{
-            text-decoration: none;
         }
     </style>
 </head>
@@ -112,8 +107,8 @@
                 </tr>
                 
                 <?php
-                    $sql1 = mysqli_query($con, "SELECT * FROM reservation");
-                    while($row = mysqli_fetch_assoc($sql1)){
+                    $sql = mysqli_query($con, "SELECT * FROM reservation");
+                    while($row = mysqli_fetch_assoc($sql)){
                 ?>
                     <tr>
                         <td><?php echo $row['name'];?></td>
@@ -129,31 +124,7 @@
         </div>
         <div id="rooms">
             <h1 class="title">Rooms</h1>
-            <a href="addRoom.php">
-                <i class="bi bi-plus-circle"></i>
-                Add a Room
-            </a>
-            <table border=1>
-                <tr>
-                    <th>Room Name</th>
-                    <th>Room Type</th>
-                    <th>Price</th>
-                    <th>Availability</th>
-                </tr>
-                <?php
-                    $sql2 = mysqli_query($con, "SELECT * FROM rooms");
-                    while($row = mysqli_fetch_assoc($sql2)){
-                ?>
-                    <tr>
-                        <td><?php echo $row['room_name'];?></td>
-                        <td><?php echo $row['room_type'];?></td>
-                        <td><?php echo $row['price'];?></td>
-                        <td><?php echo $row['room_availability'];?></td>
-                    </tr>
-                <?php
-                    }
-                ?> 
-            </table>
+            <a href="addRoom.php"></a>
         </div>
     </div>
 </body>
