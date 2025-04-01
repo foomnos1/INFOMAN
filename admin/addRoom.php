@@ -116,7 +116,7 @@
                         <option value="Family Suite">Family Suite</option>
                     </select>
                     <label>Room Picture</label>
-                    <input type="file" name="photo" required>
+                    <input type="file" name="file" required>
                     <label>Price</label>
                     <input type="number" name="price" required>
                     <input type="hidden" name="availability" value="available">

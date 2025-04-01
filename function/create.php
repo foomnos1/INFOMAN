@@ -7,10 +7,14 @@
         $price = $_POST['price'];
         $availability = $_POST['availability'];
 
-        $fileName = $_FILES['photo']['name'];
-        $tmpName = $_FILES['photo']['tmp_name'];
+        $fileName = $_FILES['file']['name'];
+        $tmpName = $_FILES['file']['tmp_name'];
+
+        $tempExtension = explode('.', $fileName);
+
+        $fileExtension = strtolower(end(tempExtension));
         
-        $newFileName = uniqid(). ".". $fileName;
+        $newFileName = uniqid('', true). ".". $fileExtension;
 
         move_uploaded_file($tmpName, '../uploads/'. $newFileName);
 
