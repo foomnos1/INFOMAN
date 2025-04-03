@@ -9,12 +9,8 @@
 
         $fileName = $_FILES['file']['name'];
         $tmpName = $_FILES['file']['tmp_name'];
-
-        $tempExtension = explode('.', $fileName);
-
-        $fileExtension = strtolower(end(tempExtension));
         
-        $newFileName = uniqid('', true). ".". $fileExtension;
+        $newFileName = uniqid(). "-". $fileName;
 
         move_uploaded_file($tmpName, '../uploads/'. $newFileName);
 
