@@ -103,7 +103,7 @@
     <div class="container">
         <div class="content">
             <h1>Create a Room</h1>
-            <form action="../function/create.php" method="POST">
+            <form action="../function/create.php" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <label>Room Name:</label>
                     <input type="text" name="roomName" required>
