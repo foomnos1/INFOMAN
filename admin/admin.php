@@ -69,7 +69,8 @@
             border-collapse: collapse;
         }
 
-        #reservation table *{
+        #reservation table *,
+        #rooms table *{
             padding: 5px;
             text-align: center;
         }
