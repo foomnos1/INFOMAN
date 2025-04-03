@@ -7,14 +7,14 @@
         $price = $_POST['price'];
         $availability = $_POST['availability'];
 
-        $fileName = $_FILES['file']['name'];
-        $tmpName = $_FILES['file']['tmp_name'];
-        
-        $newFileName = uniqid(). "-". $fileName;
+        $filename = $_FILES["file"]["name"];
+        $tmpName = $_FILES["file"]["tmp_name"];
 
-        move_uploaded_file($tmpName, '../uploads/'. $newFileName);
+        $newfilename = uniqid() . "-" . $filename;
 
-        $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$newFileName','$price','$availability')");
+        move_uploaded_file($tmpName, '../uploads/' . $newfilename);
+
+        $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$newfilename','$price','$availability')");
 
         if ($query){
             header("Location: ../admin/admin.php");
