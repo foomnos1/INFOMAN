@@ -1,8 +1,6 @@
 <?php
     include "../../connect.php";
     include "../function/process.php";
-
-    session_start();
 ?>
 
 <!DOCTYPE html>

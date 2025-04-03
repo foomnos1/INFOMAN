@@ -120,7 +120,7 @@
                     <label>Price</label>
                     <input type="number" name="price" required>
                     <input type="hidden" name="availability" value="available">
-                    <button type="submit">Submit</button>
+                    <button type="submit" name="submit">Submit</button>
                 </div>
             </form>
         </div>
