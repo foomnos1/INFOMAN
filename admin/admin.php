@@ -147,7 +147,7 @@
                     <tr>
                         <td><?php echo $row['room_name'];?></td>
                         <td><?php echo $row['room_type'];?></td>
-                        <td>different</td>
+                        <td><img src="../uploads/<?php echo $row['filename']; ?>"</td>
                         <td><?php echo $row['price'];?></td>
                         <td><?php echo $row['room_availability'];?></td>
                     </tr>
