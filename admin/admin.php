@@ -78,6 +78,12 @@
         #rooms a{
             text-decoration: none;
         }
+
+        .action a{
+            border: 1px solid black;
+            background: var(--accent);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +114,6 @@
                     <th>Room Number Use</th>
                     <th>Check-in Date</th>
                     <th>Check-out Date</th>
-                    <th>Action</th>
                 </tr>
                 
                 <?php
@@ -121,10 +126,6 @@
                         <td><?php echo $row['room_number'];?></td>
                         <td><?php echo $row['check_in_date'];?></td>
                         <td><?php echo $row['check_out_date'];?></td>
-                        <td class="action">
-                            <a href="roomUpdate.php?ID=<?php echo $row['id'];?>">Update</a>
-                            <a href="../function/delete.php?ID=<?php echo $row['id'];?>">Delete</a>
-                        </td>
                     </tr>
                 <?php
                     }
@@ -144,6 +145,7 @@
                     <th>Photo</th>
                     <th>Price</th>
                     <th>Availability</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                     $sql2 = mysqli_query($con, "SELECT * FROM rooms");
@@ -152,9 +154,13 @@
                     <tr>
                         <td><?php echo $row['room_name'];?></td>
                         <td><?php echo $row['room_type'];?></td>
-                        <td><img src="../uploads/<?php echo $row['filename']; ?>"</td>
+                        <td><img src="../uploads/<?php echo $row['filename']; ?>" width="100px"></td>
                         <td><?php echo $row['price'];?></td>
                         <td><?php echo $row['room_availability'];?></td>
+                        <td class="action">
+                            <a href="roomUpdate.php?ID=<?php echo $row['id'];?>">Update</a>
+                            <a href="../function/delete.php?ID=<?php echo $row['id'];?>">Delete</a>
+                        </td>
                     </tr>
                 <?php
                     }

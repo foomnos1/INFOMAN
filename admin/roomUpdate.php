@@ -1,10 +1,10 @@
 <?php
     include "../../connect.php";
     include "../function/process.php";
-
+    $id = $_GET['ID'];
     session_start();
 
-    $id = $_GET['ID'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -104,25 +104,17 @@
     </header>
     <div class="container">
         <div class="content">
-            <h1>Create a Room</h1>
-            <form action="../function/create.php" method="POST" enctype="multipart/form-data">
+            <h1>Update a Room</h1>
+            <form action="../function/update.php" method="POST">
                 <?php
-                    $sql = mysql_query($con, "SELECT * FROM rooms WHERE id=$id");
-                    while ($row = mysql_fetch_assoc($sql)){
+                    $sql = mysqli_query($con, "SELECT * FROM rooms WHERE id='$id'");
+                    while ($row = mysqli_fetch_assoc($sql)){
                 ?>
                     <div class="form">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                         <label>Room Name:</label>
                         <input type="text" name="roomName" value="<?php echo $row['room_name']?>" required>
-                        <label>Room Type:</label>
-                        <select name="roomType" required>
-                            <option default>--Please Choose a Room Type--</option>
-                            <option value="Single">Single</option>
-                            <option value="Double">Double</option>
-                            <option value="Suite">Suite</option>
-                            <option value="Family Suite">Family Suite</option>
-                        </select>
                         <label>Price</label>
                         <input type="number" name="price" value="<?php echo $row['price']?>" required>
                         <input type="text" name="availability" value="<?php echo $row['room_availability']?>">
