@@ -81,15 +81,7 @@
         </div>
     </header>
     <div class="container">
-        <div class="nav">
-            <div class="navLink">
-                <a href="#">Home</a>
-            </div>
-            <div class="navLink">
-                <a href="#">Home</a>
-            </div>
-        </div>
-        <div class="body"></div>
+                
     </div>
 </body>
 </html>
