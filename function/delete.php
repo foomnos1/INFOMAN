@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Reservation</title>
-    <style>
-        /* Kamo na diri */
-    </style>
-</head>
-<body>
+<?php
+    include "../../connect.php";
 
-    <?php
-        include "connect.php";
-    ?>
-</body>
-</html>
+    if (isset($_POST['submit'])){
+        $id = $_POST['id'];
+        
+        $query = mysqli_query($con, "DELETE FROM `rooms` WHERE id='$id'");
+
+        if ($query){
+            header("Location: ../admin/admin.php");
+        }
+    }  
+?>

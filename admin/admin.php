@@ -159,7 +159,7 @@
                         <td><?php echo $row['room_availability'];?></td>
                         <td class="action">
                             <a href="roomUpdate.php?ID=<?php echo $row['id'];?>">Update</a>
-                            <a href="../function/delete.php?ID=<?php echo $row['id'];?>">Delete</a>
+                            <a href="roomDelete.php?ID=<?php echo $row['id'];?>">Delete</a>
                         </td>
                     </tr>
                 <?php
