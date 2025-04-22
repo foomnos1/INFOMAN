@@ -9,13 +9,12 @@
 
         $filename = $_FILES["file"]["name"];
         $tmpName = $_FILES["file"]["tmp_name"];
+        $fileDestination = 'uploads/' . $filename;
 
-        $newfilename = uniqid() . "-" . $filename;
-
-        $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$newfilename','$price','$availability')");
+        $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$filename','$price','$availability')");
 
         if ($query){
-            move_uploaded_file($tmpName, '../uploads/' . $newfilename);
+            move_uploaded_file($tmpName, $fileDestination);
             header("Location: ../admin/admin.php");
         }
     }
