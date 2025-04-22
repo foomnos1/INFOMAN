@@ -108,6 +108,7 @@
                     <th>Room Number Use</th>
                     <th>Check-in Date</th>
                     <th>Check-out Date</th>
+                    <th>Action</th>
                 </tr>
                 
                 <?php
@@ -120,6 +121,10 @@
                         <td><?php echo $row['room_number'];?></td>
                         <td><?php echo $row['check_in_date'];?></td>
                         <td><?php echo $row['check_out_date'];?></td>
+                        <td class="action">
+                            <a href="roomUpdate.php?ID=<?php echo $row['id'];?>">Update</a>
+                            <a href="../function/delete.php?ID=<?php echo $row['id'];?>">Delete</a>
+                        </td>
                     </tr>
                 <?php
                     }
