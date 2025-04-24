@@ -9,7 +9,7 @@
 
         $filename = $_FILES["file"]["name"];
         $tmpName = $_FILES["file"]["tmp_name"];
-        $fileDestination = 'uploads/' . $filename;
+        $fileDestination = '../uploads/' . $filename;
 
         $query = mysqli_query($con, "INSERT INTO `rooms`(`room_name`, `room_type`, `filename`, `price`, `room_availability`) VALUES ('$roomName','$roomType','$filename','$price','$availability')");
 
