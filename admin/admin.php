@@ -45,10 +45,8 @@
 
         .container{
             display: flex;
-            flex-direction: column;
-            margin-top: 80px;
+            margin: 80px 10px 0;
             padding: 10px 0 0;
-            align-items: center;
             gap: 5vh;
         }
 
@@ -60,7 +58,7 @@
             width: 75%;
             padding: 25px;
             border-radius: 25px;
-            background-color: #fff /* e change ang color */
+            background-color: #fff; /* e change ang color */
         }
 
         #reservation table,
@@ -111,7 +109,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Contact</th>
-                    <th>Room Number Use</th>
+                    <th>Room Name</th>
                     <th>Check-in Date</th>
                     <th>Check-out Date</th>
                 </tr>
