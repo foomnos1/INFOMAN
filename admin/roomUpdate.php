@@ -111,12 +111,12 @@
                     while ($row = mysqli_fetch_assoc($sql)){
                 ?>
                     <div class="form">
+                        <h1>Update <?php echo ucwords($row['room_name'])?></h1>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-                        <label>Room Name:</label>
-                        <input type="text" name="roomName" value="<?php echo $row['room_name']?>" required>
+                        <input type="hidden" name="roomName" value="<?php echo $row['room_name']?>" required>
                         <label>Price</label>
                         <input type="number" name="price" value="<?php echo $row['price']?>" required>
+                        <label>Availability</label>
                         <input type="text" name="availability" value="<?php echo $row['room_availability']?>">
                         <button type="submit" name="submit">Update</button>
                     </div>

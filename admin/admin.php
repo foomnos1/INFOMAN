@@ -45,7 +45,7 @@
 
         .container{
             display: flex;
-            margin: 80px 10px 0;
+            margin: 70px 10px 0;
             padding: 10px 0 0;
             gap: 5vh;
         }
@@ -148,12 +148,11 @@
                     <tr>
                         <td><?php echo $row['room_name'];?></td>
                         <td><?php echo $row['room_type'];?></td>
-                        <td><img src="../uploads/<?php echo $row['filename']; ?>" width="100px"></td>
+                        <td><img src="../images/roomPhotos/<?php echo $row['id']; ?>.jpg" width="100px"></td>
                         <td><?php echo $row['price'];?></td>
                         <td><?php echo $row['room_availability'];?></td>
                         <td class="action">
                             <a href="roomUpdate.php?ID=<?php echo $row['id'];?>">Update</a>
-                            <a href="roomDelete.php?ID=<?php echo $row['id'];?>">Delete</a>
                         </td>
                     </tr>
                 <?php
