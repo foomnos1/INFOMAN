@@ -132,10 +132,6 @@
         </div>
         <div id="rooms">
             <h1 class="title">Rooms</h1>
-            <a href="addRoom.php">
-                <i class="bi bi-plus-circle"></i>
-                Add a Room
-            </a>
             <table border=1>
                 <tr>
                     <th>Room Name</th>
