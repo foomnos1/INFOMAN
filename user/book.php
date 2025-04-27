@@ -13,12 +13,19 @@
     <style>
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
+        body{
+            background-image: url(../images/backgroundUser.jpg);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
 
         header{
             display: flex;
             justify-content: space-between;
             padding: 0 50px;
             z-index: 1;
+            background: white;
         }
 
         header .right{
@@ -29,43 +36,34 @@
 
         .container{
             display: flex;
+            margin: 70px 10px 0;
+            padding: 10px 0 0;
+            justify-content: center;
         }
 
-        .container .nav{
-            position: fixed;
-            left: 0;
-            background: #f0f0f0;
-            height: 100%;
-            width: 25vw;
-            padding: 10px 0;
+
+        .card{
+            background: white;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-        }
-
-        .navLink{
-            border-bottom: 1px solid black;
-            width: 75%;
-            display: flex;
+            width: 25vw;
+            height: 50vh;
             justify-content: center;
-            padding-bottom: 5px;
+            border-radius: 25%;
         }
 
-        .navLink a{
+        .card a{
+            background: var(--accent);
+            padding: 10px 20px;
+            color: white;
             text-decoration: none;
-        }
-
-        .body{
-            height: 100%;
-            overflow-y: scroll;
+            border-radius: 25px;
         }
     </style>
 </head>
-<body>
-    
-
-    <header>
+<body><header>
         <div class="left">
             <h1>Lodging Reservation Management System</h1>
         </div>
@@ -73,7 +71,7 @@
             <?php
                 if (isset($_SESSION['username'])){
                     echo "
-                        <p>Hello, ". ucwords($_SESSION['username']) ."</p>
+                        <p>Welcome, ". ucwords($_SESSION['username']) ."</p>
                     ";
                 }
             ?>
@@ -81,7 +79,9 @@
         </div>
     </header>
     <div class="container">
-                
+        <form action="../function/book.php" method="post">
+            
+        </form>
     </div>
 </body>
 </html>

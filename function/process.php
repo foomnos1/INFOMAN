@@ -10,7 +10,7 @@
             header("Location: ../admin/admin.php");
             exit();
         } else {
-            header("Location: ../user/user.php");
+            header("Location: ../user/index.php");
             exit();
         }
     }
