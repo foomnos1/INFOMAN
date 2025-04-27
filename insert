@@ -1,1 +1,10 @@
-INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('','','','','');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('1','Room 101','Double','3500','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('2','Room 102','Double','3000','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('3','Room 103','Single','2500','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('4','Room 104','Double','3000','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('5','Room 105','Double','3500','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('6','Room 201','Double','3250','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('7','Room 202','Double','4000','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('8','Room 203','Single','2500','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('9','Room 204','Double','3500','Available');
+INSERT INTO `rooms`(`id`, `room_name`, `room_type`, `price`, `room_availability`) VALUES ('10','Room 205','Double','3750','Available')
