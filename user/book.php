@@ -66,11 +66,12 @@
             border-radius: 25px;
         }
 
-        .roomCard a{
+        .roomCard button{
             padding: 10px 20px;
             text-decoration: none;
             background-color: var(--accent);
             color: white;
+            border: none;
         }
 
         .roomCard img{
@@ -118,13 +119,13 @@
                 $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
                 while ($row = mysqli_fetch_assoc($query)){
             ?>
-                <form action="" method="post">
+                <form action="time.php/?ID=<?php echo $row['id']?>" method="get">
                 <div class="roomCard">
                     <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
                     <h3><?php echo $row['room_name']?></h3>
                     <p>Room Type: <?php echo $row['room_type']?></p>
                     <p>Price: <?php echo $row['price']?></p>
-                    <a href="time.php/?ID=<?php echo $row['id']?>">Use Room</a>
+                    <button type='submit' name='submit'>Use Room</button>
                 </div>
             </form>
             <?php
