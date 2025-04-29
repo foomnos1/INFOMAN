@@ -47,7 +47,6 @@
         }
 
         .form{
-            width: 75vw;
             background-color: white;
             padding: 10px;
             border-radius: 50px;
@@ -63,7 +62,7 @@
             flex-direction: column;
             align-items: center;
             padding: 5px;
-            width: 75%;
+            width: 75vw;
             border-radius: 25px;
         }
 
@@ -113,25 +112,25 @@
         </div>
     </header>
     <div class="container">
-        <form action="" method="post">
-            <div class="form">
-                <h1>Select a Room</h1>
-                <?php
-                    $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
-                    while ($row = mysqli_fetch_assoc($query)){
-                ?>
-                    <div class="roomCard">
-                        <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
-                        <h3><?php echo $row['room_name']?></h3>
-                        <p>Room Type: <?php echo $row['room_type']?></p>
-                        <p>Price: <?php echo $row['price']?></p>
-                        <a href="time.php/?ID=<?php echo $row['id']?>">Use Room</a>
-                    </div>
-                <?php
-                    }
-                ?>
-            </div>
-        </form>
+        <div class="form">
+            <h1>Select a Room</h1>
+            <?php
+                $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
+                while ($row = mysqli_fetch_assoc($query)){
+            ?>
+                <form action="" method="post">
+                <div class="roomCard">
+                    <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
+                    <h3><?php echo $row['room_name']?></h3>
+                    <p>Room Type: <?php echo $row['room_type']?></p>
+                    <p>Price: <?php echo $row['price']?></p>
+                    <a href="time.php/?ID=<?php echo $row['id']?>">Use Room</a>
+                </div>
+            </form>
+            <?php
+                }
+            ?>
+        </div>
     </div>
 </body>
 </html>
