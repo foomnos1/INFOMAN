@@ -47,13 +47,13 @@
         }
 
         .form{
-            background-color: white;
             padding: 10px;
             border-radius: 50px;
             display: flex;
+            justify-content: space-between;
             flex-direction: column;
-            align-items: center;
             gap: 10px;
+            width: 75vw;
         }
 
         .roomCard{
@@ -62,7 +62,6 @@
             flex-direction: column;
             align-items: center;
             padding: 5px;
-            width: 75vw;
             border-radius: 25px;
         }
 
@@ -78,22 +77,23 @@
             width: 250px;
         }
 
-        @media (max-width: 425px){
-            .roomCard img{
-                width: 150px;
-            }
+        .form .left,
+        .form .right{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 3vw;
+            border-radius: 25px;
+        }
 
-            header h1{
-                font-size: 16px;
-            }
+        .rooms{
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+        }
 
-            header .right p{
-                display: none;
-            }
-
-            .form h1{
-                text-align: center;
-            }
+        .form h1{
+            text-align: center;
         }
     </style>
 </head>
@@ -113,25 +113,33 @@
         </div>
     </header>
     <div class="container">
-        <div class="form">
-            <h1>Select a Room</h1>
-            <?php
-                $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
-                while ($row = mysqli_fetch_assoc($query)){
-            ?>
-                <form action="time.php/?ID=<?php echo $row['id']?>" method="get">
-                <div class="roomCard">
-                    <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
-                    <h3><?php echo $row['room_name']?></h3>
-                    <p>Room Type: <?php echo $row['room_type']?></p>
-                    <p>Price: <?php echo $row['price']?></p>
-                    <button type='submit' name='submit'>Use Room</button>
+        <form action="time.php" method="post">
+            <div class="form">
+                <div class="left">
+                    <h1>Choose a date</h1>
+                    
                 </div>
-            </form>
-            <?php
-                }
-            ?>
-        </div>
+                <div class="right">
+                    <h1>Select A Room</h1>
+                    <div class="rooms">
+                        <?php
+                            $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
+                            while ($row = mysqli_fetch_assoc($query)){
+                        ?>
+                            <div class="roomCard">
+                                <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
+                                <h3><?php echo $row['room_name']?></h3>
+                                <p>Room Type: <?php echo $row['room_type']?></p>
+                                <p>Price: <?php echo $row['price']?></p>
+                                <button type='submit' name='submit'>Use Room</button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
