@@ -1,6 +1,9 @@
 <?php
     include "../../connect.php";
     include "../function/process.php";
+    include "../function/summary.php";
+
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -54,27 +57,7 @@
             flex-direction: column;
             gap: 10px;
             width: 75vw;
-        }
-
-        .roomCard{
-            border: 1px solid black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5px;
-            border-radius: 25px;
-        }
-
-        .roomCard button{
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-        }
-
-        .roomCard img{
-            width: 250px;
+            background-color: white;
         }
 
         .form .left,
@@ -96,14 +79,53 @@
             text-align: center;
         }
 
-        .date{
+        .summary{
             display: grid;
             grid-template-columns: auto auto;
+            align-items: center;
             gap: 10px;
         }
 
-        .date label{
+        .summary label{
             text-align: end;
+        }
+
+        .summary input{
+            width: 100px;
+        }
+
+        .room{
+            border: 1px solid black;
+            border-radius: 25px;
+            padding: 10px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .room img{
+            width: 100px;
+        }
+        .form a{
+            width: 100px;
+            border: 1px solid black;
+            border-radius: 25px;
+            background-color: var(--accent);
+            text-decoration: none;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .action{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .form h3{
+            margin-bottom: 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -123,39 +145,38 @@
         </div>
     </header>
     <div class="container">
-        <form action="../function/summary.php" method="post">
-            <input type="hidden" name="name" value="<?php echo $_SESSION['username']?>">
+        <form action="payment.php" method="post">
             <div class="form">
-                <div class="left">
-                    <h1>Enter Information</h1>
-                    <div class="date">
-                        <label>Contact Number</label>
-                        <input type="text" name="contact" required>
-                        <label>Check-In Date</label>
-                        <input type="date" name="checkIn" required>
-                        <label>Check-Out Date</label>
-                        <input type="date" name="checkOut" required>
-                    </div>
-                </div>
-                <div class="right">
-                    <h1>Select A Room</h1>
-                    <div class="rooms">
+                <h1>Summary</h1>
+                <div class="summary">
+                    <label>Check-In Date</label>
+                    <input type="date" name="checkIn" value="<?php echo $_SESSION['checkInDate']?>" readonly>
+                    <label>Check-Out Date</label>
+                    <input type="date" name="checkOut" value="<?php echo $_SESSION['checkOutDate']?>" readonly>
+                    <label>Room Chosen</label>
+                    <div class="room">
                         <?php
-                            $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
+                            $roomName = $_SESSION['roomName'];
+
+                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `room_name` = '$roomName'");
                             while ($row = mysqli_fetch_assoc($query)){
                         ?>
-                            <div class="roomCard">
-                                <input type="hidden" name="roomName" value="<?php echo $row['room_name']?>">
-                                <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
-                                <h3><?php echo $row['room_name']?></h3>
-                                <p>Room Type: <?php echo $row['room_type']?></p>
-                                <p>Price: <?php echo $row['price']?></p>
-                                <button type='submit' name='submit'>Use Room</button>
-                            </div>
+
+                            <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
+                            <h3><?php echo $row['room_name']?></h3>
+                            <p>Room Type: <?php echo $row['room_type']?></p>
+                            <p>Price: <?php echo $row['price']?></p>
+
                         <?php
                             }
                         ?>
                     </div>
+                </div>
+
+                <h3>Is the above information correct?</h3>
+                <div class="action">
+                    <a href="payment.php">Yes</a>
+                    <a href="book.php">No</a>
                 </div>
             </div>
         </form>
