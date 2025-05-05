@@ -123,7 +123,7 @@
         </div>
     </header>
     <div class="container">
-        <form action="../function/summary.php" method="post">
+        <form action="../function/summary.php?" method="post">
             <input type="hidden" name="name" value="<?php echo $_SESSION['username']?>">
             <div class="form">
                 <div class="left">
@@ -146,6 +146,7 @@
                         ?>
                             <div class="roomCard">
                                 <input type="hidden" name="roomName" value="<?php echo $row['room_name']?>">
+                                <input type="hidden" name="id" value="<?php echo $row['id']?>">
                                 <img src="../images/roomPhotos/<?php echo $row['id']?>.jpg">
                                 <h3><?php echo $row['room_name']?></h3>
                                 <p>Room Type: <?php echo $row['room_type']?></p>

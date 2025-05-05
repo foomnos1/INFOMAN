@@ -156,9 +156,9 @@
                     <label>Room Chosen</label>
                     <div class="room">
                         <?php
-                            $roomName = $_SESSION['roomName'];
+                            $id = $_SESSION['id'];
 
-                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `room_name` = '$roomName'");
+                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `id` = '$id'");
                             while ($row = mysqli_fetch_assoc($query)){
                         ?>
 

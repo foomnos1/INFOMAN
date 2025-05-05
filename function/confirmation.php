@@ -18,9 +18,11 @@
 
                 if ($sql){
                     header("Location: ../user/success.php");
+                    exit;
                 }
             } else {
                 header("Location: ../user/payment.php");
+                exit;
             }
         }
     }

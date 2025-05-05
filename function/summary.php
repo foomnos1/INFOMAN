@@ -6,8 +6,9 @@
         $_SESSION['contact'] = $_POST['contact'];
         $_SESSION['checkInDate']= $_POST['checkIn'];
         $_SESSION['checkOutDate'] = $_POST['checkOut'];
+        $_SESSION['checkOutDate'] = $_POST['id'];
 
-        $_SESSION['roomName'] = $_POST['roomName'];
+        $_SESSION['id'] = $_POST['id'];
 
         header("Location: ../user/summary.php");
     }
