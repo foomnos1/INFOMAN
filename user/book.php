@@ -105,6 +105,10 @@
         .date label{
             text-align: end;
         }
+
+        button:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body><header>

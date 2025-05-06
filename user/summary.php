@@ -127,6 +127,10 @@
             margin-bottom: 0;
             text-align: center;
         }
+
+        button:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body><header>
@@ -156,9 +160,10 @@
                     <label>Room Chosen</label>
                     <div class="room">
                         <?php
+                            $room = $_SESSION['roomName'];
                             $id = $_SESSION['id'];
 
-                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `id` = '$id'");
+                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `room_name` = '$room' AND `id` = '$id'");
                             while ($row = mysqli_fetch_assoc($query)){
                         ?>
 
