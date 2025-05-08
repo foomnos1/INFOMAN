@@ -1,9 +1,9 @@
 <?php
     include "../../connect.php";
     include "../function/process.php";
-    include "../function/summary.php";
 
-    session_start();
+    $checkIn = $_SESSION['checkInDate'];
+    $checkOut = $_SESSION['checkOutDate'];
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +107,8 @@
         .room img{
             width: 100px;
         }
-        .form a{
+        .form a,
+        .form button{
             width: 100px;
             border: 1px solid black;
             border-radius: 25px;
@@ -149,21 +150,20 @@
         </div>
     </header>
     <div class="container">
-        <form action="payment.php" method="post">
+        <form action="../function/payment.php" method="post">
             <div class="form">
                 <h1>Summary</h1>
                 <div class="summary">
                     <label>Check-In Date</label>
-                    <input type="date" name="checkIn" value="<?php echo $_SESSION['checkInDate']?>" readonly>
+                    <input type="text" name="checkIn" value="<?php echo $checkIn?>" readonly>
                     <label>Check-Out Date</label>
-                    <input type="date" name="checkOut" value="<?php echo $_SESSION['checkOutDate']?>" readonly>
+                    <input type="text" name="checkOut" value="<?php echo $checkOut?>" readonly>
                     <label>Room Chosen</label>
                     <div class="room">
                         <?php
-                            $room = $_SESSION['roomName'];
                             $id = $_SESSION['id'];
 
-                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `room_name` = '$room' AND `id` = '$id'");
+                            $query = mysqli_query($con, "SELECT * FROM `rooms` where `id` = '$id'");
                             while ($row = mysqli_fetch_assoc($query)){
                         ?>
 
@@ -180,7 +180,7 @@
 
                 <h3>Is the above information correct?</h3>
                 <div class="action">
-                    <a href="payment.php">Yes</a>
+                    <button type="submit" name="submit">Yes</button>
                     <a href="book.php">No</a>
                 </div>
             </div>

@@ -1,5 +1,8 @@
 <?php
 include "../../connect.php";
+include "../function/process.php";
+
+$id = $_GET['ID'];
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +50,7 @@ include "../../connect.php";
         }
 
         .form {
-            padding: 10px;
+            padding: 20px;
             border-radius: 50px;
             display: flex;
             justify-content: space-between;
@@ -55,42 +58,6 @@ include "../../connect.php";
             gap: 10px;
             width: 75vw;
             background-color: white;
-        }
-
-        .roomCard {
-            border: 1px solid black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5px;
-            border-radius: 25px;
-        }
-
-        .roomCard button {
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-        }
-
-        .roomCard img {
-            width: 250px;
-        }
-
-        .form .left,
-        .form .right {
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 3vw;
-            border-radius: 25px;
-        }
-
-        .rooms {
-            display: grid;
-            grid-template-columns: auto auto;
-            gap: 10px;
         }
 
         .form h1 {
@@ -109,6 +76,13 @@ include "../../connect.php";
 
         button:hover {
             cursor: pointer;
+        }
+
+        .container .right {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     </style>
 </head>
@@ -131,28 +105,22 @@ include "../../connect.php";
     </header>
     <div class="container">
         <div class="right">
-            <div class="form">
-                <h1>Select A Room</h1>
-                <div class="rooms">
-                    <?php
-                    $query = mysqli_query($con, "SELECT * FROM `rooms` WHERE `room_availability` = 'Available'");
-                    while ($row = mysqli_fetch_assoc($query)) {
-                        ?>
-                        <form action="time.php" method="GET">
-                            <div class="roomCard">
-                                <input type="hidden" name="ID" value="<?php echo $row['id'] ?>">
-                                <img src="../images/roomPhotos/<?php echo $row['id'] ?>.jpg">
-                                <h3><?php echo $row['room_name'] ?></h3>
-                                <p>Room Type: <?php echo $row['room_type'] ?></p>
-                                <p>Price: <?php echo $row['price'] ?></p>
-                                <button type='submit' name='submit' value="submit">Use Room</button>
-                            </div>
-                        </form>
-                        <?php
-                    }
-                    ?>
+            <form action="../function/summary.php" method="post">
+                <div class="form">
+                    <h1>Choose A Date</h1>
+                    <input type="hidden" name="id" value="<?php echo $id?>">
+                    <input type="hidden" name="userName" value="<?php echo ucwords($_SESSION['username']) ?>">
+                    <div class="date">
+                        <label>Contact</label>
+                        <input type="text" name="contact" required>
+                        <label>Check-In Date</label>
+                        <input type="date" name="checkIn" required>
+                        <label>Check-Out Date</label>
+                        <input type="date" name="checkOut" required>
+                    </div>
+                    <button type="submit" name="submit">Submit</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

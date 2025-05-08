@@ -67,12 +67,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="left">t</div>
+        <div class="left"></div>
         <div class="right">
             <form action="function/process.php" method="post">
                 <div class="form">
                     <label>Enter your username: </label>
                     <input type="text" name="username" autocomplete="off">
+                    <label>Enter your password: </label>
+                    <input type="password" name="password" autocomplete="off">
                     <button type="submit" name="submit">Login</button>
                 </div>
             </form>

@@ -1,9 +1,6 @@
 <?php
     include "../../connect.php";
     include "../function/process.php";
-    include "../function/summary.php";
-
-    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -98,9 +95,9 @@
             <div class="form">
             <h1>Payment</h1>
             <?php
-                $roomName = $_SESSION['roomName'];
+                $id = $_SESSION['id'];
 
-                $query = mysqli_query($con, "SELECT * FROM `rooms` where `room_name` = '$roomName'");
+                $query = mysqli_query($con, "SELECT * FROM `rooms` where `id` = '$id'");
                 while ($row = mysqli_fetch_assoc($query)){
             ?>
                 <p>Required Payment: <span><?php echo $row['price']?></span></p>
