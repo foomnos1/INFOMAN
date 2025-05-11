@@ -20,23 +20,9 @@
             background-attachment: fixed;
         }
 
-        header{
-            display: flex;
-            justify-content: space-between;
-            padding: 0 50px;
-            z-index: 1;
-            background: white;
-        }
-
-        header .right{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .container{
             display: flex;
-            margin: 70px 10px 0;
+            margin: 29vh 0 0;
             padding: 10px 0 0;
             justify-content: center;
         }
@@ -63,24 +49,11 @@
         }
     </style>
 </head>
-<body><header>
-        <div class="left">
-            <h1>Lodging Reservation Management System</h1>
-        </div>
-        <div class="right">
-            <?php
-                if (isset($_SESSION['username'])){
-                    echo "
-                        <p>Welcome, ". ucwords($_SESSION['username']) ."</p>
-                    ";
-                }
-            ?>
-            <a href="../index.php"><img src="../images/logOut.svg" width="25px"></a>
-        </div>
-    </header>
+<body>
+    <?php include "../header.php"; ?>
     <div class="container">
         <div class="card">
-            <?php echo "<h2>Welcome, ". ucwords($_SESSION['username']) ."</h2>";?>
+            <h2>Welcome!</h2>
             <a href="book.php">Start booking!</a>
         </div>
     </div>

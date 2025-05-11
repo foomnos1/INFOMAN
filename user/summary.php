@@ -134,21 +134,8 @@
         }
     </style>
 </head>
-<body><header>
-        <div class="left">
-            <h1>Lodging Reservation Management System</h1>
-        </div>
-        <div class="right">
-            <?php
-                if (isset($_SESSION['username'])){
-                    echo "
-                        <p>Welcome, ". ucwords($_SESSION['username']) ."</p>
-                    ";
-                }
-            ?>
-            <a href="../index.php"><img src="../images/logOut.svg" width="25px"></a>
-        </div>
-    </header>
+<body>
+    <?php include "../header.php"; ?>
     <div class="container">
         <form action="../function/payment.php" method="post">
             <div class="form">

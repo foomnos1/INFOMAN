@@ -20,28 +20,9 @@
             background-attachment: fixed;
         }
 
-        header{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 1;
-            background-color: white;
-        }
-
-        header .right{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .container{
             display: flex;
-            margin: 70px 10px 0;
+            margin: 29vh 0 0;
             padding: 10px 0 0;
             justify-content: center;
         }
@@ -71,27 +52,14 @@
         }
     </style>
 </head>
-<body><header>
-        <div class="left">
-            <h1>Lodging Reservation Management System</h1>
-        </div>
-        <div class="right">
-            <?php
-                if (isset($_SESSION['username'])){
-                    echo "
-                        <p>Welcome, ". ucwords($_SESSION['username']) ."</p>
-                    ";
-                }
-            ?>
-            <a href="../index.php"><img src="../images/logOut.svg" width="25px"></a>
-        </div>
-    </header>
+<body>
+    <?php include "../header.php"; ?>
     <div class="container">
         <form action="../function/confirmation.php" method="post">
-            <input type="hidden" name="name" value=<?php echo $_SESSION['userName']?>>
-            <input type="hidden" name="contact" value=<?php echo $_SESSION['contact']?>>
-            <input type="hidden" name="checkIn" value=<?php echo $_SESSION['checkInDate']?>>
-            <input type="hidden" name="Checkout" value=<?php echo $_SESSION['checkOutDate']?>>
+            <input type="hidden" name="name" value="<?php echo $_SESSION['userName']?>">
+            <input type="hidden" name="contact" value="<?php echo $_SESSION['contact']?>">
+            <input type="hidden" name="checkIn" value="<?php echo $_SESSION['checkInDate']?>">
+            <input type="hidden" name="Checkout" value="<?php echo $_SESSION['checkOutDate']?>">
             <div class="form">
             <h1>Payment</h1>
             <?php
@@ -101,7 +69,7 @@
                 while ($row = mysqli_fetch_assoc($query)){
             ?>
                 <p>Required Payment: <span><?php echo $row['price']?></span></p>
-                <input type="hidden" name="roomName" value=<?php echo $_SESSION['roomName']?>>
+                <input type="hidden" name="roomName" value="<?php echo $row['room_name']?>">
 
             <?php
                 }

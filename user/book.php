@@ -20,25 +20,6 @@ include "../../connect.php";
             background-attachment: fixed;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 1;
-            background-color: white;
-        }
-
-        header .right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .container {
             display: flex;
             margin: 70px 10px 0;
@@ -64,6 +45,8 @@ include "../../connect.php";
             align-items: center;
             padding: 5px;
             border-radius: 25px;
+            height: 65vh;
+            justify-content: center;
         }
 
         .roomCard button {
@@ -114,21 +97,7 @@ include "../../connect.php";
 </head>
 
 <body>
-    <header>
-        <div class="left">
-            <h1>Lodging Reservation Management System</h1>
-        </div>
-        <div class="right">
-            <?php
-            if (isset($_SESSION['username'])) {
-                echo "
-                        <p>Welcome, " . ucwords($_SESSION['username']) . "</p>
-                    ";
-            }
-            ?>
-            <a href="../index.php"><img src="../images/logOut.svg" width="25px"></a>
-        </div>
-    </header>
+    <?php include "../header.php"; ?>
     <div class="container">
         <div class="right">
             <div class="form">
