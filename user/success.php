@@ -80,7 +80,7 @@
     </header>
     <div class="container">
         <div class="card">
-            <?php echo "<h2>Congratulations ". ucwords($_SESSION['username']) .". You have successfully booked a room! You can now log out.</h2>";?>
+            <?php echo "<h2> You can now log out.</h2>";?>
             <a href="../index.php">Log Out</a>
         </div>
     </div>

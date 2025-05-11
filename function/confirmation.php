@@ -1,7 +1,5 @@
 <?php
-    include "../../../connect.php";
-
-    session_start();
+    include "../../connect.php";
 
     if (isset($_POST['submit'])){
         $name = $_POST['name'];
@@ -17,10 +15,12 @@
                 $sql = mysqli_query($con, "INSERT INTO `reservation` (`name`, `contact`, `room_number`, `check_in_date`, `check_out_date`) VALUES ('$name','$contact','$roomName','$checkIn','$checkOut')");
 
                 if ($sql){
-                    header("Location: ../user/success.php");
+                    echo `<script>alert("Congratulations! You have successfully booked a room!")</script>`;
+                    header("Location: ../user/index.php");
                     exit;
                 }
             } else {
+                echo `<script>alert("Insufficient payment amount. Please try again.")</script>`;
                 header("Location: ../user/payment.php");
                 exit;
             }

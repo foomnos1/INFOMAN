@@ -1,10 +1,17 @@
 <?php
-    include "../../connect.php";
-    include "../function/process.php";
+include "../../connect.php";
+include "../function/process.php";
+
+$name = $_SESSION['userName'];
+$contact = $_SESSION['contact'];
+$checkIn = $_SESSION['checkInDate'];
+$checkOut = $_SESSION['checkOutDate'];
+$id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,21 +20,21 @@
     <style>
         /* Kamo na diri */
         /* Mubutang rako kung kailangan nako iri daan*/
-        body{
+        body {
             background-image: url(../images/backgroundUser.jpg);
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
         }
 
-        .container{
+        .container {
             display: flex;
             margin: 29vh 0 0;
             padding: 10px 0 0;
             justify-content: center;
         }
 
-        .form{
+        .form {
             padding: 10px;
             border-radius: 50px;
             display: flex;
@@ -39,7 +46,7 @@
         }
 
         .form .left,
-        .form .right{
+        .form .right {
             background-color: white;
             display: flex;
             flex-direction: column;
@@ -47,39 +54,39 @@
             border-radius: 25px;
         }
 
-        .form h1{
+        .form h1 {
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <?php include "../header.php"; ?>
     <div class="container">
         <form action="../function/confirmation.php" method="post">
-            <input type="hidden" name="name" value="<?php echo $_SESSION['userName']?>">
-            <input type="hidden" name="contact" value="<?php echo $_SESSION['contact']?>">
-            <input type="hidden" name="checkIn" value="<?php echo $_SESSION['checkInDate']?>">
-            <input type="hidden" name="Checkout" value="<?php echo $_SESSION['checkOutDate']?>">
+            <input type="hidden" name="name" value="<?php echo $name ?>">
+            <input type="hidden" name="contact" value="<?php echo $contact ?>">
+            <input type="hidden" name="checkIn" value="<?php echo $checkIn ?>">
+            <input type="hidden" name="checkout" value="<?php echo $checkOut ?>">
             <div class="form">
-            <h1>Payment</h1>
-            <?php
-                $id = $_SESSION['id'];
-
+                <h1>Payment</h1>
+                <?php
                 $query = mysqli_query($con, "SELECT * FROM `rooms` where `id` = '$id'");
-                while ($row = mysqli_fetch_assoc($query)){
-            ?>
-                <p>Required Payment: <span><?php echo $row['price']?></span></p>
-                <input type="hidden" name="roomName" value="<?php echo $row['room_name']?>">
+                while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <p>Required Payment: <span><?php echo $row['price'] ?></span></p>
+                    <input type="hidden" name="roomName" value="<?php echo $row['room_name'] ?>">
 
-            <?php
+                    <?php
                 }
-            ?>
-            
-            <label>Enter Payment</label>
-            <input type="number" name="payment" required>
-            <button type="submit" name="submit">Pay Now</button>
+                ?>
+
+                <label>Enter Payment</label>
+                <input type="number" name="payment" required>
+                <button type="submit" name="submit">Pay Now</button>
             </div>
         </form>
     </div>
 </body>
+
 </html>
