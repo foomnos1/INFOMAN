@@ -94,7 +94,7 @@ $checkOut = $_SESSION['checkOutDate'];
         }
 
         .summary input {
-            width: 100px;
+            width: 200px;
         }
 
         .room {

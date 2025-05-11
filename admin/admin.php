@@ -73,7 +73,8 @@
             text-align: center;
         }
 
-        #rooms a{
+        #rooms a,
+        #reservation a{
             text-decoration: none;
         }
 
@@ -112,6 +113,7 @@
                     <th>Room Name</th>
                     <th>Check-in Date</th>
                     <th>Check-out Date</th>
+                    <th>Action</th>
                 </tr>
                 
                 <?php
@@ -124,6 +126,9 @@
                         <td><?php echo $row['room_number'];?></td>
                         <td><?php echo $row['check_in_date'];?></td>
                         <td><?php echo $row['check_out_date'];?></td>
+                        <td class="action">
+                            <a href="approveConfirmation.php?ID=<?php echo $row['id'];?>&RoomName=<?php echo $row['room_number'];?>">Approve</a>
+                        </td>
                     </tr>
                 <?php
                     }

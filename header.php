@@ -24,6 +24,13 @@
             border-radius: 15px;
             border: 1px solid #ccc;
         }
+
+        header .right button{
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 

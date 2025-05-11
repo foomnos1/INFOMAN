@@ -71,7 +71,6 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
-            border: 2px solid black;
             border-radius: 15px;
             padding: 10px;
             width: 25vw;
@@ -81,6 +80,19 @@
             background-color: var(--accent);
             border: none;
             border: 1px solid black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .form button:hover{
+            cursor: pointer;
+        }
+
+        .form h1{
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -104,7 +116,6 @@
     </header>
     <div class="container">
         <div class="content">
-            <h1>Update a Room</h1>
             <form action="../function/update.php" method="POST">
                 <?php
                     $sql = mysqli_query($con, "SELECT * FROM rooms WHERE id='$id'");

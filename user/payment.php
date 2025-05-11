@@ -67,7 +67,7 @@ $id = $_SESSION['id'];
             <input type="hidden" name="name" value="<?php echo $name ?>">
             <input type="hidden" name="contact" value="<?php echo $contact ?>">
             <input type="hidden" name="checkIn" value="<?php echo $checkIn ?>">
-            <input type="hidden" name="checkout" value="<?php echo $checkOut ?>">
+            <input type="hidden" name="checkOut" value="<?php echo $checkOut ?>">
             <div class="form">
                 <h1>Payment</h1>
                 <?php
